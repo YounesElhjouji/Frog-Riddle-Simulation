@@ -1,14 +1,14 @@
 import React from 'react';
 import logo from './logo.svg';
 import './App.css';
-import { test} from './simulation/simulate'
+import { simulate} from './simulation/simulate'
 
 function App() {
-  for (let i=1; i<20; i++){
-    test(10000,0.1)
-    //round(0.8);
-  }
 
+  simulate(5000)
+  if(0){
+    console.log("0");
+  }
   return (
     <div className="App">
       <header className="App-header">
