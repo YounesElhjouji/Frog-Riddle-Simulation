@@ -2,7 +2,7 @@
 // it was the other way around until I wanted to fit it with coraked
 // you'll get it
 
-// NOTE TO FUTURE SELF: betetr modeling of croaking probability if time isn't included it's kinda bullshit
+// NOTE TO FUTURE SELF: better modeling of croaking probability if time isn't included it's kinda bullshit
 
 export function random(a,b,isInt=1){
   let rand;
@@ -121,8 +121,12 @@ export function chris_survives(frogs){
 
 // cp stands for croak probability, the probability that a male would croak during the period of the puzzle
 export function simulate(iters,fp=0.5,cp=0.5){
+  /*
+  Sam goes for the single frog
+  Chris goes for the two frogs
+  */
   let spoiled = 0;
-  let sam_count = 0;
+  let sam_count = 0; 
   let chris_count = 0;
   for (let i=0;i<iters;i++){
     let frogs = round(fp,cp);
@@ -130,7 +134,7 @@ export function simulate(iters,fp=0.5,cp=0.5){
       spoiled++;
       continue;
     }
-    sam_count+= sam_survives(frogs);
+    sam_count+= sam_survives(frogs);      
     chris_count+= chris_survives(frogs);
   }
   console.log("Sam's chances: "+sam_count/(iters-spoiled));
